@@ -4,18 +4,17 @@ import subprocess
 
 list_process = []
 
-def exce_list_process_in_1vm(path_vm,id):
+def exce_list_process_in_1vm(path_vm):
     try:
         # Get username and password
-        VM_USERNAME, VM_PASSWORD = u.getuser_by_id_room(id)
-        VM_USERNAME = '"' + VM_USERNAME + '"'
-        VM_PASSWORD = '"' + VM_PASSWORD + '"'
-        path_vm = '"' + path_vm + '"'
+        VM_USERNAME = s.VM_USER
+        VM_PASSWORD =  s.VM_PASSWORD
+        path_vm = '"' + path_vm + '"'   
         command = s.SCRIPT_CONNECT_TO_SERVER + " " + s.PATH_VMRUN + " -gu " + VM_USERNAME + " -gp " + VM_PASSWORD + " listProcessesInGuest " + path_vm + " -interactive"
         process = subprocess.run(command, shell=True, stdout=subprocess.PIPE)
         listt = process.stdout.splitlines()
         for i in listt:
-            list_process.append(i.decode('utf-8'))
+            print(i)
         print("Processes running in the guest:")
 
     except subprocess.CalledProcessError as e:
@@ -56,15 +55,6 @@ def kill_process_by_name(name,PATH_VMX):
         except subprocess.CalledProcessError as e:
             print(f"Error: {e}")
             print(f"Failed to kill process with ID {process_id}.")
-
-
-
-def exce_list_process():
-    try:
-       for i in list_process:
-            print(i)
-    except:
-        return None
 
 
 def get_list_process():

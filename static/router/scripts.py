@@ -12,13 +12,13 @@ SCRIPT_SHOW_CONFIG = SCRIPT_CONNECT_TO_SERVER + " type "
 
 SCRIPT_UPDATE = SCRIPT_CONNECT_TO_SERVER + PATH_VMRUN + " upgradevm "
 
-PATH_DATA = "/home/skromnyy/Documents/BEDARN-master/static/data/"
+PATH_DATA = "/home/server/BEDA/static/data/"
 
 PATH_USER = "/home/skromnyy/Documents/BEDARN-master/static/user_data/user_list.json"
 
 PATH_SOURCE = "/home/skromnyy/Documents/BEDARN-master/static/programs/source_program"
 
-PATH_PROGRAM = "/home/skromnyy/Documents/BEDARN-master/static/programs/program_list.json"
+PATH_PROGRAM = "/home/server/BEDA/static/programs/list_programs.json"
 
 VM_USER = "admin"
 

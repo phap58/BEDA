@@ -11,7 +11,6 @@ def restart_all_vm():
             command = s.SCRIPT_CONNECT_TO_SERVER + s.PATH_VMRUN + "reset " + path
             subprocess.run(command, shell=True, stdout=subprocess.PIPE)
             print("Restarting VM: " + path)
-        print(list_pathvm)
     except subprocess.CalledProcessError as e:
         print("Error running command: " + e.cmd)
         print("Return code: " + str(e.returncode))

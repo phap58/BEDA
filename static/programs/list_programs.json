@@ -1,9 +1,9 @@
 [
     {
         "id" : 1,
-        "name" : "NotePad",
-        "link_source" : "/home/skromnyy/Documents/BEDARN-master/static/programs/source_programs/Notepad",
-        "link_in_vm" : "C:/Users/bedarn/Desktop/Notepad"
+        "name" : "Test",
+        "link_source" : "C:/Users/Administrator/Downloads/CocCocSetup.exe",
+        "link_in_vm" : "C:/Users/admin/Desktop/CocCocSetup.exe"
     },
     {
         "id" : 2,

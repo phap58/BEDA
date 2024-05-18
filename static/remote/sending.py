@@ -2,15 +2,15 @@ import subprocess
 import static.router.user as u
 import static.router.scripts as s
 import static.router.infomation as i
+import static.router.program as pr
 
-def send_file_to_vm(path_vm, path_file, id):
+def send_file_to_vm(path_vm,id):
     try:
         # Get username and password
-        VM_USERNAME, VM_PASSWORD = u.getuser_by_id_room(id)
-        VM_USERNAME = '"' + VM_USERNAME + '"'
-        VM_PASSWORD = '"' + VM_PASSWORD + '"'
-        command = s.SCRIPT_CONNECT_TO_SERVER + " " + s.PATH_VMRUN + " -gu " + VM_USERNAME + " -gp " + VM_PASSWORD + " -gu " + VM_USERNAME + " -gp " + VM_PASSWORD + " CopyFileFromHostToGuest " + path_vm + " " + path_file
-        subprocess.run(command, shell=True, stdout=subprocess.PIPE)
+        path_host,path_file = pr.get_info_program_by_id(id)
+        VM_USERNAME = s.VM_USER
+        VM_PASSWORD = s.VM_PASSWORD 
+        command = [s.SCRIPT_CONNECT_TO_SERVER,s.PATH_VMRUN, "-T", "ws", "-gu", VM_USERNAME, "-gp", VM_PASSWORD, "copyFileFromHostToGuest", path_vm, path_host, path_file]
         print("File sent to VM: " + path_vm)
     except subprocess.CalledProcessError as e:
         print("Error running command: " + e.cmd)
